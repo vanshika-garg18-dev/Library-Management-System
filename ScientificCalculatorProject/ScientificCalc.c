@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
+#define PI 3.14159265358979323846
+#define E  2.71828182845904523536
+
 long long factorial(int n)
 {
     if (n < 0)
@@ -16,7 +19,7 @@ long long factorial(int n)
 int main()
 {
     int choice;
-    double a, b, result;
+    double a, b;
     int n;
 
     printf("\n");
@@ -50,125 +53,145 @@ int main()
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
-        switch(choice)
+        switch (choice)
         {
-            case 1:
-                printf("Enter two numbers: ");
-                scanf("%lf%lf", &a, &b);
-                printf("Result = %.2lf\n", a + b);
-                break;
+        case 1:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &a, &b);
+            printf("Result = %.2lf\n", a + b);
+            break;
 
-            case 2:
-                printf("Enter two numbers: ");
-                scanf("%lf%lf", &a, &b);
-                printf("Result = %.2lf\n", a - b);
-                break;
+        case 2:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &a, &b);
+            printf("Result = %.2lf\n", a - b);
+            break;
 
-            case 3:
-                printf("Enter two numbers: ");
-                scanf("%lf%lf", &a, &b);
-                printf("Result = %.2lf\n", a * b);
-                break;
+        case 3:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &a, &b);
+            printf("Result = %.2lf\n", a * b);
+            break;
 
-            case 4:
-                printf("Enter two numbers: ");
-                scanf("%lf%lf", &a, &b);
+        case 4:
+            printf("Enter two numbers: ");
+            scanf("%lf %lf", &a, &b);
 
-                if(b == 0)
-                    printf("Error! Division by zero.\n");
-                else
-                    printf("Result = %.2lf\n", a / b);
-                break;
+            if (b == 0)
+                printf("Error! Division by zero.\n");
+            else
+                printf("Result = %.2lf\n", a / b);
+            break;
 
-            case 5:
-                printf("Enter base and exponent: ");
-                scanf("%lf%lf", &a, &b);
-                printf("Result = %.2lf\n", pow(a, b));
-                break;
+        case 5:
+            printf("Enter base and exponent: ");
+            scanf("%lf %lf", &a, &b);
+            printf("Result = %.2lf\n", pow(a, b));
+            break;
 
-            case 6:
-                printf("Enter number: ");
-                scanf("%lf", &a);
+        case 6:
+            printf("Enter number: ");
+            scanf("%lf", &a);
+
+            if (a < 0)
+                printf("Square root of a negative number is not possible.\n");
+            else
                 printf("Result = %.2lf\n", sqrt(a));
-                break;
+            break;
 
-            case 7:
-                printf("Enter number: ");
-                scanf("%lf", &a);
-                printf("Result = %.2lf\n", cbrt(a));
-                break;
+        case 7:
+            printf("Enter number: ");
+            scanf("%lf", &a);
+            printf("Result = %.2lf\n", pow(a, 1.0 / 3.0));
+            break;
 
-            case 8:
-                printf("Enter angle in degrees: ");
-                scanf("%lf", &a);
-                printf("Result = %.4lf\n", sin(a * M_PI / 180));
-                break;
+        case 8:
+            printf("Enter angle in degrees: ");
+            scanf("%lf", &a);
+            printf("Result = %.4lf\n", sin(a * PI / 180.0));
+            break;
 
-            case 9:
-                printf("Enter angle in degrees: ");
-                scanf("%lf", &a);
-                printf("Result = %.4lf\n", cos(a * M_PI / 180));
-                break;
+        case 9:
+            printf("Enter angle in degrees: ");
+            scanf("%lf", &a);
+            printf("Result = %.4lf\n", cos(a * PI / 180.0));
+            break;
 
-            case 10:
-                printf("Enter angle in degrees: ");
-                scanf("%lf", &a);
-                printf("Result = %.4lf\n", tan(a * M_PI / 180));
-                break;
+        case 10:
+            printf("Enter angle in degrees: ");
+            scanf("%lf", &a);
+            printf("Result = %.4lf\n", tan(a * PI / 180.0));
+            break;
 
-            case 11:
-                printf("Enter number: ");
-                scanf("%lf", &a);
+        case 11:
+            printf("Enter number: ");
+            scanf("%lf", &a);
+
+            if (a <= 0)
+                printf("Log is undefined for zero or negative numbers.\n");
+            else
                 printf("Result = %.4lf\n", log10(a));
-                break;
+            break;
 
-            case 12:
-                printf("Enter number: ");
-                scanf("%lf", &a);
+        case 12:
+            printf("Enter number: ");
+            scanf("%lf", &a);
+
+            if (a <= 0)
+                printf("Natural log is undefined for zero or negative numbers.\n");
+            else
                 printf("Result = %.4lf\n", log(a));
-                break;
+            break;
 
-            case 13:
-                printf("Enter value of x: ");
-                scanf("%lf", &a);
-                printf("Result = %.4lf\n", exp(a));
-                break;
+        case 13:
+            printf("Enter value of x: ");
+            scanf("%lf", &a);
+            printf("Result = %.4lf\n", exp(a));
+            break;
 
-            case 14:
-                printf("Enter integer: ");
-                scanf("%d", &n);
+        case 14:
+            printf("Enter integer: ");
+            scanf("%d", &n);
+
+            if (n < 0)
+                printf("Factorial is not defined for negative numbers.\n");
+            else
                 printf("Result = %lld\n", factorial(n));
-                break;
+            break;
 
-            case 15:
-                printf("Enter value and total: ");
-                scanf("%lf%lf", &a, &b);
+        case 15:
+            printf("Enter value and total: ");
+            scanf("%lf %lf", &a, &b);
+
+            if (b == 0)
+                printf("Total cannot be zero.\n");
+            else
                 printf("Percentage = %.2lf%%\n", (a / b) * 100);
-                break;
+            break;
 
-            case 16:
-                printf("Enter number: ");
-                scanf("%lf", &a);
-                printf("Result = %.2lf\n", fabs(a));
-                break;
+        case 16:
+            printf("Enter number: ");
+            scanf("%lf", &a);
+            printf("Result = %.2lf\n", fabs(a));
+            break;
 
-            case 17:
-                printf("PI = %.15lf\n", M_PI);
-                break;
+        case 17:
+            printf("PI = %.15lf\n", PI);
+            break;
 
-            case 18:
-                printf("e = %.15lf\n", M_E);
-                break;
+        case 18:
+            printf("e = %.15lf\n", E);
+            break;
 
-            case 0:
-                printf("\nThank you for using the calculator!\n");
-                break;
+        case 0:
+            printf("\nThank you for using the Scientific Calculator!\n");
+            break;
 
-            default:
-                printf("Invalid Choice!\n");
+        default:
+            printf("Invalid Choice! Please try again.\n");
         }
 
-    } while(choice != 0);
+    } while (choice != 0);
 
     return 0;
 }
